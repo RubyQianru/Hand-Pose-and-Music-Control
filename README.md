@@ -28,3 +28,5 @@
 
 
 9. Refresh the web app anytime you want to collect a new label or run into any issues.
+
+## Model Training
