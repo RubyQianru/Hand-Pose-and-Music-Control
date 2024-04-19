@@ -37,11 +37,7 @@ Updated model:
 <img width="300" alt="截屏2024-04-17 18 37 47" src="https://github.com/RubyQianru/DL4M-Hand-Pose-and-Music-Generation/assets/142470034/d7331ad2-e013-4164-ac7e-7429b1bc56de">
 
 
-7. Follow the instruction on the web app. Make sure to copy the JSON output from the console, and paste it into a local JSON file.
-
-
-<img width="300" alt="截屏2024-04-17 18 41 08" src="https://github.com/RubyQianru/DL4M-Hand-Pose-and-Music-Generation/assets/142470034/b83f4ada-c44c-4afe-8b77-77d8ed4b60cb">
-
+7. Follow the instruction on the web app. Make sure to press key  "s" to save and download the JSON dataset. It might takes 30 seconds for the download to initiate.
 
 9. Refresh the web app anytime you want to collect a new label or run into any issues.
 
