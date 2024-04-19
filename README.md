@@ -3,6 +3,10 @@
 A music constroller triggered by a specific hand pose, using Hand pose recognition model trained based upon TensorFlow MediaPipe Hand Pose Detection Model. Reference: [Hand Pose Detection](https://github.com/tensorflow/tfjs-models/blob/master/hand-pose-detection/README.md)
 
 ## Data Collection
+
+We are planning to use TensorFlow.js MediaPipe Hand Pose Detection model as the model our transfer learning model is basing upon. With the knowledge of 63 landmarks of hand pose, our model will have a better understanding of features of hand poses, and where users’ hands are located at. For the model training, we will use the 63 landmarks as the data structure of our training samples. For the model usage, we will run the TensorFlow.js MediaPipe Hand Pose model (V2), and use its output as our model input to retrieve predictions.
+
+### Steps
 1. Download the folder "Data-Collector" from [link](https://github.com/RubyQianru/DL4M-Hand-Pose-and-Music-Generation/tree/main/Data-Collector)
 2. Open the folder on VS Code.
 3. On VS Code, download plugin "Live Server"
