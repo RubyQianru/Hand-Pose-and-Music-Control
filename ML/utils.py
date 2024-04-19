@@ -49,12 +49,6 @@ def split_data(x_data, y_data, split_idx):
 
 def preprocess_data(x_train, y_train, x_test, y_test):
 
-    x_train = x_train.reshape(-1, 63).astype("float32") 
-    x_test = x_test.reshape(-1, 63).astype("float32") 
-
-    y_train = y_train.astype("float32") 
-    y_test = y_test.astype("float32") 
-
     val_size = int(len(x_train) * 0.1)
 
     x_train, x_val = x_train[:-val_size], x_train[-val_size:]
@@ -65,14 +59,14 @@ def preprocess_data(x_train, y_train, x_test, y_test):
 
 def build_model(input_shape=63):
 
-    model = keras.Sequential([
+    model = keras.models.Sequential([
         # The dense neural network model consists of a flatten layer
 
         # Dense layer with 256 units
         layers.Dense(256, input_shape = (input_shape,), activation='relu'),  
 
         # Dropout layer with 0.5 dropout rate
-        layers.Dropout(0.5),  
+        layers.Dense(10, activation="relu"),  
 
         # Sigmoid output layer 
         layers.Dense(1, activation='sigmoid')  
@@ -103,11 +97,14 @@ def classify_handpose(model, hand_features):
 
 
 def test_model(model, x_test, y_test):
-
+    # Get model predictions
     y_pred = model.predict(x_test)
-    # Evaluate model
-    acc = np.mean(y_pred==y_test)
-    return acc
+
+    y_pred_labels = (y_pred > 0.5).astype(int)
+
+    acc = np.mean(y_pred_labels.flatten() == y_test.flatten())  
+
+    return acc, y_pred_labels
 
 
 # Auxiliary functions below =====================================
