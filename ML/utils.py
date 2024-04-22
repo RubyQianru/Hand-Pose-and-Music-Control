@@ -79,13 +79,14 @@ def build_model(input_shape=63):
     return model
 
 
-def train_model(model, x_train, y_train, x_val, y_val, epochs=5, batch_size=32):
+def train_model(model, x_train, y_train, x_val, y_val, epochs=5, batch_size=32, class_weights=None):
     # train the model using train and validation sets
     history = model.fit(x_train, y_train, 
                         epochs=epochs, 
                         batch_size=batch_size, 
-                        validation_data=(x_val, y_val))
-    return history
+                        validation_data=(x_val, y_val),
+                        class_weight=class_weights)
+    return history, model
 
 def classify_handpose(model, hand_features):
 
