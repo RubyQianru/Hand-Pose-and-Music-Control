@@ -1,4 +1,4 @@
-# DL4M-Hand-Pose-and-Music-Generation
+# DL4M-Hand-Pose-and-Music-Control
 
 A music constroller triggered by a specific hand pose, using Hand pose recognition model trained based upon TensorFlow MediaPipe Hand Pose Detection Model. Reference: [Hand Pose Detection](https://github.com/tensorflow/tfjs-models/blob/master/hand-pose-detection/README.md)
 
