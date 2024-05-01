@@ -58,3 +58,67 @@ The first model is a Keras sequential model object representing the built model.
 The second model is a Keras sequential model object representing the built model. The model architecture consists of three Dense layers: the first dense layer of size 64 with relu activation, the second dense layer of size 10 with relu activation, followed by an output layer with a single unit and sigmoid activation function. The model is compiled with the binary cross-entropy loss function, an adam optimizer, and the accuracy metric.
 
 <img width="400" alt="截屏2024-04-30 22 12 25" src="https://github.com/RubyQianru/Hand-Pose-and-Music-Control/assets/142470034/a6c98c7f-a37d-448c-aacf-8f924522ea37">
+
+### Requirements
+
+Give instructions on setting up the environment.
+
+```
+conda env create -f environment.yml
+conda activate hotdog
+```
+
+### Training the Model
+
+```python
+model = u.build_model()
+
+# Adjust class weights based on the dataset balance
+class_weights = {0: 1, # o
+                 1: 1} # n
+
+history, model = u.train_model(model, x_train, y_train, x_val, y_val, 
+                      epochs=30, batch_size=64, class_weights=class_weights)
+
+u.plot_loss(history)
+```
+
+
+### Using the Model
+
+```python
+# Load demo data from the folder
+file_paths = ["../Data/demo.json"]
+x_data, y_data = u.load_data(file_paths) 
+```
+
+```python
+# Load model from the folder
+from tensorflow.keras.models import load_model
+model = load_model('Handpose-Recognition.h5')
+```
+
+```python
+import numpy as np
+
+# Classify handpose
+# sample random handpose from the demo dataset
+idx = np.random.randint(0, len(y_data), size=1)[0] 
+handpose_features = x_data[idx][np.newaxis, :] 
+print('This handpose is not the target handpose.' if y_data[idx]==0 else 
+      'This handpose is the target handpose.')
+
+# Use your model to make predictions
+y_pred = u.classify_handpose(model, handpose_features)
+
+if y_pred[0] == 1:
+    print('The model says this handpose is the target handpose.')
+else:
+    print('The model says this handpose is not the target handpose.')
+```
+
+<img width="400" alt="截屏2024-04-24 18 54 23" src="https://github.com/RubyQianru/final-project-example/assets/142470034/4830b139-ae45-4b60-84c1-669fc4667675">
+
+## References
+
+
