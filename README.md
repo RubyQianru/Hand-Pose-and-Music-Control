@@ -4,7 +4,7 @@ A music constroller triggered by a specific hand pose, using Hand pose recogniti
 
 ## Data Collection
 
-We are planning to use TensorFlow.js MediaPipe Hand Pose Detection model as the model our transfer learning model is basing upon. With the knowledge of 63 landmarks of hand pose, our model will have a better understanding of features of hand poses, and where users’ hands are located at. For the model training, we will use the 63 landmarks as the data structure of our training samples. For the model usage, we will run the TensorFlow.js MediaPipe Hand Pose model (V2), and use its output as our model input to retrieve predictions.
+We are planning to use TensorFlow.js MediaPipe Hand Pose Detection model as the model our transfer learning model is basing upon. With the knowledge of 63 landmarks of hand pose, our model will have a better understanding of features of hand poses, and where users’ hands are located at. For the model training, we will use the 63 landmarks as the data structure of our training samples. For the model usage, we will run the TensorFlow.js MediaPipe Hand Pose Detection model, and use its output as our model input to retrieve predictions.
 
 <img src="https://github.com/RubyQianru/Hand-Pose-and-Music-Control/assets/142470034/d0ac8c39-7418-4905-b1eb-e3a61b3aac32" width="400">
 
@@ -41,7 +41,7 @@ Updated model:
 
 7. Follow the instruction on the web app. Make sure to press key  "s" to save and download the JSON dataset. It might takes 30 seconds for the download to initiate.
 
-9. Refresh the web app anytime you want to collect a new label or run into any issues.
+9. Refresh the web app anytime if you run into any issues (like errors in console).
 
 ## Dataset
 
@@ -90,7 +90,9 @@ u.plot_loss(history)
 
 Instructions on using the model: 
 
-1. Go to demo.ipynb and run the following code:
+1. Go to demo.ipynb. 
+2. You may use the demo.json we provided inside /Data folder, or you may use our Data Collector to collect your own hand pose data. If you are collectng your own data, make sure to rename the JSON file to "data.json", put it inside /Data folder, and run the following code.
+3. You may refer to the **Data Collection** instructions above for a step-by-step runthrough of how to correctly use Data Collector. 
 
 ```python
 # Load demo data from the folder
@@ -138,6 +140,10 @@ Not only pitch, but also the wavetable can be controlled by the patch; using dee
 Max Msp internally support .js javascript code, using external compiler to edit the code and have it run within Max environment. Using this function, the coordinate matrix and hand gesture will be imported real time into Max Msp environment to control the instrument.
 
 Create a server environment using Websocket that receives our model output ( prediction result, x, y axis of the hand pose) and transmit the data to outlets in MAX MSP.
+
+### Prototype
+
+https://github.com/RubyQianru/Hand-Pose-and-Music-Control/assets/142470034/423a7bc3-8e7c-43e0-9487-77e9e9e0b5a9
 
 ## References
 
