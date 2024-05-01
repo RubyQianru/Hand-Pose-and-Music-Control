@@ -45,9 +45,9 @@ Updated model:
 
 ## Dataset
 
-You may access the dataset through the link to [data](https://drive.google.com/file/d/1j5LG9KK0rGxBih69Itpd6Z-gzOUAGMG7/view?usp=share_link)
+You may also access the dataset through the link to [data](https://drive.google.com/file/d/1j5LG9KK0rGxBih69Itpd6Z-gzOUAGMG7/view?usp=share_link)
 
-<img width="300" alt="截屏2024-04-29 16 15 57" src="https://github.com/RubyQianru/Hand-Pose-and-Music-Control/assets/142470034/8e393506-2379-4a8a-8054-ea4707f1da74">
+<img width="500" alt="截屏2024-04-29 16 15 57" src="https://github.com/RubyQianru/Hand-Pose-and-Music-Control/assets/142470034/8e393506-2379-4a8a-8054-ea4707f1da74">
 
 ## Model 
 
