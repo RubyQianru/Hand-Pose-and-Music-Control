@@ -53,22 +53,24 @@ You may access the dataset through the link to [data](https://drive.google.com/f
 
 The first model is a Keras sequential model object representing the built model. The model architecture consists of four Dense layers: the first dense layer of size 64 with relu activation, the second dense layer of size 32 with relu activation, the third dense layer of size 2 with relu activation, followed by an output layer with a single unit and sigmoid activation function. The model is compiled with the binary cross-entropy loss function, an adam optimizer, and the accuracy metric.
 
-<img width="300" alt="截屏2024-04-30 22 12 42" src="https://github.com/RubyQianru/Hand-Pose-and-Music-Control/assets/142470034/f48c258a-5d1d-4870-aa38-a369bca0e505">
+<img width="600" alt="截屏2024-04-30 22 12 42" src="https://github.com/RubyQianru/Hand-Pose-and-Music-Control/assets/142470034/f48c258a-5d1d-4870-aa38-a369bca0e505">
 
 The second model is a Keras sequential model object representing the built model. The model architecture consists of three Dense layers: the first dense layer of size 64 with relu activation, the second dense layer of size 10 with relu activation, followed by an output layer with a single unit and sigmoid activation function. The model is compiled with the binary cross-entropy loss function, an adam optimizer, and the accuracy metric.
 
-<img width="300" alt="截屏2024-04-30 22 12 25" src="https://github.com/RubyQianru/Hand-Pose-and-Music-Control/assets/142470034/a6c98c7f-a37d-448c-aacf-8f924522ea37">
+<img width="600" alt="截屏2024-04-30 22 12 25" src="https://github.com/RubyQianru/Hand-Pose-and-Music-Control/assets/142470034/a6c98c7f-a37d-448c-aacf-8f924522ea37">
 
 ### Requirements
 
-Give instructions on setting up the environment.
+Instructions on setting up the environment:
 
 ```
 conda env create -f environment.yml
-conda activate hotdog
+conda activate dl4m-final
 ```
 
 ### Training the Model
+
+Instructions on training the model:
 
 ```python
 model = u.build_model()
@@ -85,6 +87,10 @@ u.plot_loss(history)
 
 
 ### Using the Model
+
+Instructions on using the model: 
+
+1. Go to demo.ipynb and run the following code:
 
 ```python
 # Load demo data from the folder
