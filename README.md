@@ -47,17 +47,17 @@ Updated model:
 
 You may access the dataset through the link to [data](https://drive.google.com/file/d/1j5LG9KK0rGxBih69Itpd6Z-gzOUAGMG7/view?usp=share_link)
 
-<img width="400" alt="截屏2024-04-29 16 15 57" src="https://github.com/RubyQianru/Hand-Pose-and-Music-Control/assets/142470034/8e393506-2379-4a8a-8054-ea4707f1da74">
+<img width="300" alt="截屏2024-04-29 16 15 57" src="https://github.com/RubyQianru/Hand-Pose-and-Music-Control/assets/142470034/8e393506-2379-4a8a-8054-ea4707f1da74">
 
 ## Model 
 
 The first model is a Keras sequential model object representing the built model. The model architecture consists of four Dense layers: the first dense layer of size 64 with relu activation, the second dense layer of size 32 with relu activation, the third dense layer of size 2 with relu activation, followed by an output layer with a single unit and sigmoid activation function. The model is compiled with the binary cross-entropy loss function, an adam optimizer, and the accuracy metric.
 
-<img width="400" alt="截屏2024-04-30 22 12 42" src="https://github.com/RubyQianru/Hand-Pose-and-Music-Control/assets/142470034/f48c258a-5d1d-4870-aa38-a369bca0e505">
+<img width="300" alt="截屏2024-04-30 22 12 42" src="https://github.com/RubyQianru/Hand-Pose-and-Music-Control/assets/142470034/f48c258a-5d1d-4870-aa38-a369bca0e505">
 
 The second model is a Keras sequential model object representing the built model. The model architecture consists of three Dense layers: the first dense layer of size 64 with relu activation, the second dense layer of size 10 with relu activation, followed by an output layer with a single unit and sigmoid activation function. The model is compiled with the binary cross-entropy loss function, an adam optimizer, and the accuracy metric.
 
-<img width="400" alt="截屏2024-04-30 22 12 25" src="https://github.com/RubyQianru/Hand-Pose-and-Music-Control/assets/142470034/a6c98c7f-a37d-448c-aacf-8f924522ea37">
+<img width="300" alt="截屏2024-04-30 22 12 25" src="https://github.com/RubyQianru/Hand-Pose-and-Music-Control/assets/142470034/a6c98c7f-a37d-448c-aacf-8f924522ea37">
 
 ### Requirements
 
@@ -117,7 +117,7 @@ else:
     print('The model says this handpose is not the target handpose.')
 ```
 
-<img width="400" alt="截屏2024-04-24 18 54 23" src="https://github.com/RubyQianru/final-project-example/assets/142470034/4830b139-ae45-4b60-84c1-669fc4667675">
+<img width="300" alt="截屏2024-04-24 18 54 23" src="https://github.com/RubyQianru/final-project-example/assets/142470034/4830b139-ae45-4b60-84c1-669fc4667675">
 
 ## References
 
