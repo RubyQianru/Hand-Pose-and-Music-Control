@@ -1,0 +1,20 @@
+name: dl4m-final
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - pip
+  - python=3.8
+
+  - pip:
+      - keras
+      - matplotlib
+      - numpy
+      - scikit-learn
+      - tensorflow-macos==2.10.0
+      - tensorflow-hub
+      - smart-open
+      - pytest
+      - ipykernel
+      # Uncomment only you have an M series GPU chip
+      # - tensorflow-metal==0.6.0

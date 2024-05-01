@@ -1,0 +1,24 @@
+name: dl4m-final
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  # Uncomment only if you have cuda gpu on your device
+  # You will need
+  # Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019;
+  # Nvidia GPU driver installed
+  # See https://www.tensorflow.org/install/pip
+  # - cudatoolkit=11.2
+  # - cudnn=8.1.0
+  - pip
+  - python=3.8
+  - pip:
+      - keras
+      - matplotlib
+      - numpy
+      - scikit-learn
+      - tensorflow==2.10.0
+      - tensorflow-hub
+      - smart-open
+      - pytest
+      - ipykernel

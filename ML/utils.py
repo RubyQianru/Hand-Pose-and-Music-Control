@@ -126,13 +126,14 @@ def test_model(model, x_test, y_test):
     y_pred = model.predict(x_test)
 
     y_pred_labels = (y_pred > 0.5).astype(int)
-
     acc = np.mean(y_pred_labels.flatten() == y_test.flatten())  
 
     return acc, y_pred_labels
 
 
-# Auxiliary functions below =====================================
+# Auxiliary functions below sourced from DL4M Homework 1 
+# https://github.com/dl4m/homework-1-RubyQianru
+# =====================================
 
 def plot_loss(history):
     # plot the training and validation loss side by side
