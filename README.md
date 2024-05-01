@@ -125,6 +125,20 @@ else:
 
 <img width="400" alt="截屏2024-04-24 18 54 23" src="https://github.com/RubyQianru/final-project-example/assets/142470034/4830b139-ae45-4b60-84c1-669fc4667675">
 
+## Music Control
+
+Similar to theremin, the Max Patch would allow users to control the pitch of the sound by changing hand positions of the camera, and controlling the volume by sliding your hand left and right. The Max patch will take coordinates from the hand gesture capturing model tensorflow js file in real time.
+
+### Timbre Control
+
+Not only pitch, but also the wavetable can be controlled by the patch; using deep learning model to recognize the hand gesture of the sound, (N)in order to change the type of sound the instrument is going to trigger.
+
+### Realtime Data Transmission
+
+Max Msp internally support .js javascript code, using external compiler to edit the code and have it run within Max environment. Using this function, the coordinate matrix and hand gesture will be imported real time into Max Msp environment to control the instrument.
+
+Create a server environment using Websocket that receives our model output ( prediction result, x, y axis of the hand pose) and transmit the data to outlets in MAX MSP.
+
 ## References
 
 1. Transfer learning model is originally based on [TensorFlow Hand Pose Detection Model](https://github.com/tensorflow/tfjs-models/tree/master/hand-pose-detection)
