@@ -23,20 +23,20 @@ Updated model:
 3. On VS Code, download plugin "Live Server"
 
 
-<img width="300" alt="截屏2024-04-17 18 32 22" src="https://github.com/RubyQianru/DL4M-Hand-Pose-and-Music-Generation/assets/142470034/1f401603-c6c4-4962-9b75-403e68109712">
+<img width="400" alt="截屏2024-04-17 18 32 22" src="https://github.com/RubyQianru/DL4M-Hand-Pose-and-Music-Generation/assets/142470034/1f401603-c6c4-4962-9b75-403e68109712">
 
 
 4. Click on "Go Live" on the bottom right of VS Code.
 
 
-<img width="300" alt="截屏2024-04-17 18 33 26" src="https://github.com/RubyQianru/DL4M-Hand-Pose-and-Music-Generation/assets/142470034/249429fe-98be-4edf-9ab7-99d5e61c2c6f">
+<img width="400" alt="截屏2024-04-17 18 33 26" src="https://github.com/RubyQianru/DL4M-Hand-Pose-and-Music-Generation/assets/142470034/249429fe-98be-4edf-9ab7-99d5e61c2c6f">
 
 
 5. Make sure the web app is running on Chrome browser. Right click and select "Inspect".
 6. When the panel pops up, select "console" to go to console.
 
 
-<img width="300" alt="截屏2024-04-17 18 37 47" src="https://github.com/RubyQianru/DL4M-Hand-Pose-and-Music-Generation/assets/142470034/d7331ad2-e013-4164-ac7e-7429b1bc56de">
+<img width="400" alt="截屏2024-04-17 18 37 47" src="https://github.com/RubyQianru/DL4M-Hand-Pose-and-Music-Generation/assets/142470034/d7331ad2-e013-4164-ac7e-7429b1bc56de">
 
 
 7. Follow the instruction on the web app. Make sure to press key  "s" to save and download the JSON dataset. It might takes 30 seconds for the download to initiate.
@@ -47,17 +47,17 @@ Updated model:
 
 You may also access the dataset through the link to [data](https://drive.google.com/file/d/1j5LG9KK0rGxBih69Itpd6Z-gzOUAGMG7/view?usp=share_link)
 
-<img width="500" alt="截屏2024-04-29 16 15 57" src="https://github.com/RubyQianru/Hand-Pose-and-Music-Control/assets/142470034/8e393506-2379-4a8a-8054-ea4707f1da74">
+<img width="400" alt="截屏2024-04-29 16 15 57" src="https://github.com/RubyQianru/Hand-Pose-and-Music-Control/assets/142470034/8e393506-2379-4a8a-8054-ea4707f1da74">
 
 ## Model 
 
 The first model is a Keras sequential model object representing the built model. The model architecture consists of four Dense layers: the first dense layer of size 64 with relu activation, the second dense layer of size 32 with relu activation, the third dense layer of size 2 with relu activation, followed by an output layer with a single unit and sigmoid activation function. The model is compiled with the binary cross-entropy loss function, an adam optimizer, and the accuracy metric.
 
-<img width="600" alt="截屏2024-04-30 22 12 42" src="https://github.com/RubyQianru/Hand-Pose-and-Music-Control/assets/142470034/f48c258a-5d1d-4870-aa38-a369bca0e505">
+<img width="400" alt="截屏2024-04-30 22 12 42" src="https://github.com/RubyQianru/Hand-Pose-and-Music-Control/assets/142470034/f48c258a-5d1d-4870-aa38-a369bca0e505">
 
 The second model is a Keras sequential model object representing the built model. The model architecture consists of three Dense layers: the first dense layer of size 64 with relu activation, the second dense layer of size 10 with relu activation, followed by an output layer with a single unit and sigmoid activation function. The model is compiled with the binary cross-entropy loss function, an adam optimizer, and the accuracy metric.
 
-<img width="600" alt="截屏2024-04-30 22 12 25" src="https://github.com/RubyQianru/Hand-Pose-and-Music-Control/assets/142470034/a6c98c7f-a37d-448c-aacf-8f924522ea37">
+<img width="400" alt="截屏2024-04-30 22 12 25" src="https://github.com/RubyQianru/Hand-Pose-and-Music-Control/assets/142470034/a6c98c7f-a37d-448c-aacf-8f924522ea37">
 
 ### Requirements
 
@@ -123,8 +123,10 @@ else:
     print('The model says this handpose is not the target handpose.')
 ```
 
-<img width="300" alt="截屏2024-04-24 18 54 23" src="https://github.com/RubyQianru/final-project-example/assets/142470034/4830b139-ae45-4b60-84c1-669fc4667675">
+<img width="400" alt="截屏2024-04-24 18 54 23" src="https://github.com/RubyQianru/final-project-example/assets/142470034/4830b139-ae45-4b60-84c1-669fc4667675">
 
 ## References
 
+1. Transfer learning model is originally based on [TensorFlow Hand Pose Detection Model](https://github.com/tensorflow/tfjs-models/tree/master/hand-pose-detection)
+2. Model report and testing code is based on [DL4M Homework 1](https://github.com/dl4m/homework-1-RubyQianru)
 
