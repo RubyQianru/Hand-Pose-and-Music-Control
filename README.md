@@ -145,6 +145,11 @@ Create a server environment using Websocket that receives our model output ( pre
 
 https://github.com/RubyQianru/Hand-Pose-and-Music-Control/assets/142470034/423a7bc3-8e7c-43e0-9487-77e9e9e0b5a9
 
+## Future Plan & Usage
+
+1. Classification of multiple handposes.
+2. Design and development of Node.js server leveraging websocket to bridge our frontend hand pose classification with our instrument in Max. 
+
 ## References
 
 1. Transfer learning model is originally based on [TensorFlow Hand Pose Detection Model](https://github.com/tensorflow/tfjs-models/tree/master/hand-pose-detection)
