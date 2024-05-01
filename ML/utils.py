@@ -6,6 +6,18 @@ import matplotlib.pyplot as plt
 import json
 
 def load_data(file_paths):
+    """
+    Load and preprocess data from a list of JSON files containing features and labels.
+
+    Returns
+    -------
+    all_x_data : np.ndarray
+        A numpy array containing the extracted and processed features from all provided files.
+        Each feature set is a flattened list of coordinates (x, y, z) from the JSON data structure.
+    all_y_data : np.ndarray
+        A numpy array containing all labels associated with the features. Labels are converted
+        from 'o' and 'n' in the JSON files to binary values 1 and 0, respectively.
+    """
 
     all_x_data = []
     all_y_data = []
@@ -34,6 +46,27 @@ def load_data(file_paths):
 
 
 def shuffle_data(x_data, y_data, random_seed=2):
+    """
+    Shuffle the data arrays in unison while maintaining the correlation between features and labels.
+
+    Parameters
+    ----------
+    x_data : np.ndarray
+        A numpy array containing the features to be shuffled.
+    y_data : np.ndarray
+        A numpy array containing the labels corresponding to the features in x_data.
+    random_seed : int, optional
+        An integer seed for the random number generator to ensure reproducibility of the shuffle.
+        Default is 2.
+
+    Returns
+    -------
+    x_data : np.ndarray
+        The shuffled numpy array of features.
+    y_data : np.ndarray
+        The shuffled numpy array of labels, maintaining correspondence with x_data.
+    """
+    
     if random_seed is not None:
         np.random.seed(random_seed)
     
@@ -45,6 +78,30 @@ def shuffle_data(x_data, y_data, random_seed=2):
 
 
 def split_data(x_data, y_data, split_idx):
+    """
+    Split the data into training and testing sets based on a specified index.
+
+    Parameters
+    ----------
+    x_data : np.ndarray
+        A numpy array containing the features of the entire dataset.
+    y_data : np.ndarray
+        A numpy array containing the labels of the entire dataset, corresponding to the features in x_data.
+    split_idx : int
+        The index at which the data is split into training and testing sets. Features and labels before this index
+        are assigned to the training set, and those after to the testing set.
+
+    Returns
+    -------
+    x_train : np.ndarray
+        A numpy array containing the features for the training set.
+    y_train : np.ndarray
+        A numpy array containing the labels for the training set, corresponding to x_train.
+    x_test : np.ndarray
+        A numpy array containing the features for the testing set.
+    y_test : np.ndarray
+        A numpy array containing the labels for the testing set, corresponding to x_test.
+    """
 
     x_train, y_train = x_data[:split_idx], y_data[:split_idx]
     x_test, y_test = x_data[split_idx:], y_data[split_idx:]
@@ -53,6 +110,35 @@ def split_data(x_data, y_data, split_idx):
 
 
 def preprocess_data(x_train, y_train, x_test, y_test):
+    """
+    Reshape and partition the data into training, validation, and testing sets.
+
+    Parameters
+    ----------
+    x_train : np.ndarray
+        A numpy array containing the features for the training set.
+    y_train : np.ndarray
+        A numpy array containing the labels for the training set, corresponding to x_train.
+    x_test : np.ndarray
+        A numpy array containing the features for the testing set.
+    y_test : np.ndarray
+        A numpy array containing the labels for the testing set, corresponding to x_test.
+
+    Returns
+    -------
+    x_train : np.ndarray
+        A numpy array of reshaped features for the training set.
+    y_train : np.ndarray
+        A numpy array of labels for the training set.
+    x_val : np.ndarray
+        A numpy array of reshaped features for the validation set extracted from the original training set.
+    y_val : np.ndarray
+        A numpy array of labels for the validation set, corresponding to x_val.
+    x_test : np.ndarray
+        A numpy array of reshaped features for the testing set.
+    y_test : np.ndarray
+        A numpy array of labels for the testing set.
+    """
 
     x_train = x_train.reshape(-1, 63)
     x_test = x_test.reshape(-1, 63)
@@ -66,6 +152,25 @@ def preprocess_data(x_train, y_train, x_test, y_test):
 
 
 def build_baseline(input_shape=63):
+    """
+    Build a baseline neural network model for binary classification.
+
+    Parameters
+    ----------
+    input_shape : int, optional
+        The shape (number of features) of the input data. Default is 63.
+        This parameter specifies the number of features in the input dataset.
+
+    Returns
+    -------
+    model : keras.models.Sequential
+        A Keras sequential model object configured for binary classification. 
+        The model consists of a series of Dense layers with ReLU activations, 
+        ending with a single unit output layer with a sigmoid activation function 
+        to output probabilities indicative of class membership.
+        The model is compiled with the Adam optimizer, binary cross-entropy as the
+        loss function, and tracks accuracy as a performance metric.
+    """
 
     model = keras.models.Sequential([
 
@@ -85,6 +190,24 @@ def build_baseline(input_shape=63):
     return model
 
 def build_model(input_shape=63):
+    """
+    Construct a neural network model for binary classification with a simpler architecture.
+
+    Parameters
+    ----------
+    input_shape : int, optional
+        The number of input features. Default is 63.
+        This parameter specifies the size of the input data expected by the model.
+
+    Returns
+    -------
+    model : keras.models.Sequential
+        A Keras sequential model that is configured for binary classification tasks.
+        The architecture includes a sequence of Dense layers with ReLU activations 
+        and a final output layer with a sigmoid activation. The model is compiled 
+        with the Adam optimizer, uses binary cross-entropy as the loss function, and 
+        measures accuracy as the performance metric.
+    """
 
     model = keras.models.Sequential([
 
@@ -104,6 +227,36 @@ def build_model(input_shape=63):
 
 
 def train_model(model, x_train, y_train, x_val, y_val, epochs=5, batch_size=32, class_weights=None):
+    """
+    Train a given Keras model using the provided training data and validate it using the provided validation data.
+
+    Parameters
+    ----------
+    model : keras.models.Sequential
+        The Keras model to be trained.
+    x_train : np.ndarray
+        The input features for training the model.
+    y_train : np.ndarray
+        The target labels for training the model.
+    x_val : np.ndarray
+        The input features for validating the model.
+    y_val : np.ndarray
+        The target labels for validating the model.
+    epochs : int, optional
+        The number of epochs to train the model for. Default is 5.
+    batch_size : int, optional
+        The batch size to use during training. Default is 32.
+    class_weights : dict, optional
+        A dictionary mapping class indices to a weight for the class, to balance the training data during model training. Default is None.
+
+    Returns
+    -------
+    history : keras.callbacks.History
+        The training history object containing the details of the training process, such as loss and accuracy for each epoch.
+    model : keras.models.Sequential
+        The trained Keras model after completing the training cycles.
+    """
+
     # train the model using train and validation sets
     history = model.fit(x_train, y_train, 
                         epochs=epochs, 
@@ -113,6 +266,25 @@ def train_model(model, x_train, y_train, x_val, y_val, epochs=5, batch_size=32, 
     return history, model
 
 def classify_handpose(model, hand_features):
+    """
+    Classify hand poses as one of the classes (0 or 1) based on the given features using a trained model.
+    This function is designed to handle individual or few samples, making it suitable for real-time applications.
+
+    Parameters
+    ----------
+    model : keras.engine.training.Model
+        The trained model used for classification of hand poses.
+    hand_features : np.ndarray
+        A numpy array containing the features of the hand poses to classify. The features should be
+        preprocessed appropriately to match the input requirements of the model.
+
+    Returns
+    -------
+    np.ndarray
+        A numpy array containing the predicted labels (0 or 1) for the given hand poses. '0' might
+        represent a specific gesture or non-target class, and '1' might represent another specific gesture
+        or target class, depending on the model training.
+    """
 
     predictions = model.predict(hand_features)
     y_pred = np.where(predictions < 0.5, 0, 1)
@@ -122,6 +294,27 @@ def classify_handpose(model, hand_features):
 
 
 def test_model(model, x_test, y_test):
+    """
+    Test a trained model using the provided testing data set to evaluate its accuracy.
+
+    Parameters
+    ----------
+    model : keras.engine.training.Model
+        The trained Keras model to be evaluated.
+    x_test : np.ndarray
+        The input features for the testing set.
+    y_test : np.ndarray
+        The true target labels against which the model predictions will be compared.
+
+    Returns
+    -------
+    acc : float
+        The accuracy of the model on the testing set, calculated as the percentage of 
+        correctly predicted labels.
+    y_pred_labels : np.ndarray
+        A numpy array containing the predicted labels (0 or 1) for the testing set. 
+    """
+    
     # Get model predictions
     y_pred = model.predict(x_test)
 
