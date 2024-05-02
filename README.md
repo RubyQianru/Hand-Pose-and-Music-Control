@@ -147,7 +147,7 @@ https://github.com/RubyQianru/Hand-Pose-and-Music-Control/assets/142470034/423a7
 
 ## Future Plan & Usage
 
-1. Classification of multiple handposes.
+1. Classification of multiple handposes for different use cases. For example: [AI Meeting Room](https://github.com/RubyQianru/Machine-Learning-TFJS)
 2. Design and development of Node.js server leveraging websocket to bridge our frontend hand pose classification with our instrument in Max. 
 
 ## References
